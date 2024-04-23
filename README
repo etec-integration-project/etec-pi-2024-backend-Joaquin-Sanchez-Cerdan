@@ -1,0 +1,5 @@
+Hola. Este archivo README está hecho para que usted sepa como correr mi backend. (Este archivo se irá
+actualizando mediante el desarrollo avance.)
+
+1. Correr el comando npm install
+2. Correr el comando npm run dev
