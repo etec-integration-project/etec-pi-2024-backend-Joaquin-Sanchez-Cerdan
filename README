@@ -1,5 +1,9 @@
 Hola. Este archivo README está hecho para que usted sepa como correr mi backend. (Este archivo se irá
 actualizando mediante el desarrollo avance.)
+Autor: Joaquín Andrés Sanchez Cerdán
 
 1. Correr el comando npm install
-2. Correr el comando npm run dev
+2. Entrar a MYSQL Workbench y crear una base de datos llamada "dogsdb"
+3. En el query 1, colocar el siguiente comando y correrlo: ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
+4. Refrescar la base de datos 
+5. Correr el comando npm run dev

@@ -1,11 +1,39 @@
 import express from 'express';
-	const app = express();
-	app.use(express.json());
-	const PORT = 8080;
-	app.get('/', (req,res) => {
-		console.log('Buenos días');
-		res.send('Conexión establecida');
-	});
-	app.listen(PORT, () => {
-		console.log(`El servidor está corriendo en el puerto: ${PORT}`);
-	});
+import { AppDataSource } from './persistance/db';
+import { mainRouter } from './router/routes' ;
+import { User } from './persistance/user';
+import cors from 'cors';
+
+const app = express();
+const port = 8080;
+
+app.use(function(_, res, next){
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.header("Access-Control-Allow-Headers", "Origins, X-Requested-With, Content-Type, Accept");
+    next();
+})
+    
+app.use(express.json());
+app.use ('/' , mainRouter);
+app.use (cors());
+
+
+AppDataSource.initialize()
+    .then(async() => {
+        console.log('Base de datos conectada');
+
+//usuario
+        const validation_user = AppDataSource.manager.getRepository(User)
+        const user_exist = await validation_user.find()
+        if (user_exist.length == 0){
+            const user1 = new User("prueba123" , "prueba@gmail.com", "12345678", "12345678")
+            AppDataSource.manager.save([user1])
+            console.log(user_exist)
+        }
+        app.listen(port, () => {
+            console.log(`Servidor: http://localhost:${port}`);
+        });
+    })
+    .catch(err => {
+        throw err
+    });
