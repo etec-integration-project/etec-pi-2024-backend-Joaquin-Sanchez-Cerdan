@@ -4,15 +4,15 @@ Autor: Joaquín Andrés Sanchez Cerdán
 
 1. Crear un directorio con el comando *mkdir* con cualquier nombre y entrar al mismo con cd *nombre_de_directorio*
 2. Dentro del directorio hacer un git clone a la siguiente url https://github.com/etec-integration-project/etec-pi-2024-backend-JoaSNZ.git 
-3. Entrar a MYSQL Workbench y crear una base de datos llamada "dogsdb"
-4. En el query 1, colocar el siguiente comando y correrlo: ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
-5. Refrescar la base de datos 
-6. Correr el comando docker compose up --build 
-
-*INSTRUCCIONES POR SI MYSQL NO RECONOCE LA IP DE LA PC PARA ACCEDER COMO ROOT*
+3. Entrar a MYSQL Workbench. Conectarse a la instancia local y crear una base de datos llamada "dogsdb"
+4. En el query 1, colocar los siguientes comandos y correrlos:
 
 use mysql;
 
 create user 'root'@'%' identified with mysql_native_password by '1234';
 
 grant all privileges on *.* to 'root'@'%';
+
+5. Refrescar la base de datos 
+6. Correr el comando docker compose up --build -d
+

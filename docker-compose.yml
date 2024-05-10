@@ -1,4 +1,20 @@
 services:
+
+  mysql:
+    image: mysql:latest
+    ports:
+        - 3307:3306
+    volumes:
+        - /etc/localtime:/etc/localtime:ro
+        - /etc/timezone:/etc/timezone:ro
+    restart: always
+    environment:
+        - MYSQL_ROOT_PASSWORD=1234
+        - MYSQL_DATABASE=dogsdb
+        - TZ=America/Argentina/Mendoza
+    networks:
+      - express-app
+
   app:
     build:
       context: .
@@ -9,7 +25,7 @@ services:
       - DATABASE_NAME=dogsdb
       - DATABASE_USERNAME=root
       - DATABASE_PASSWORD=1234
-      - DATABASE_HOST=192.168.42.81
+      - DATABASE_HOST=mysql
     networks:
       - express-app
 

@@ -1,14 +1,17 @@
 import { DataSource } from "typeorm"
 import { User } from "./user"
 import "reflect-metadata"
+import "dotenv/config"
+
+//ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234'; MySQL Auth Failed Solution
 
 export const AppDataSource = new DataSource({
     type: 'mysql',
-    host: '192.168.42.81',
+    host: process.env.DATABASE_HOST,
     port: 3306,
-    username: 'root',
-    password: '1234',
-    database: 'dogsdb',
+    username: process.env.DATABASE_USERNAME,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,
     synchronize: true,
     logging: true,
     entities: [User],
