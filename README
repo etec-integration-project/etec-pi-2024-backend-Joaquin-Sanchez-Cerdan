@@ -15,4 +15,7 @@ grant all privileges on *.* to 'root'@'%';
 
 5. Refrescar la base de datos 
 6. Correr el comando docker compose up --build -d
+7. Realizar un *curl* a la siguientes url para verificar el funcionamiento:
+    * http://localhost:8080
+    * http://localhost:8080/usuarios
 
