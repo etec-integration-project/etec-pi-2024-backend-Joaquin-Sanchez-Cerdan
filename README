@@ -3,7 +3,7 @@ actualizando mediante el desarrollo avance.)
 Autor: Joaquín Andrés Sanchez Cerdán
 
 1. Crear un directorio con el comando *mkdir* con cualquier nombre y entrar al mismo con cd *nombre_de_directorio*
-2. Dentro del directorio hacer un git clone a la siguiente url https://github.com/etec-integration-project/etec-pi-2024-backend-JoaSNZ.git 
+2. Dentro del directorio hacer un git clone a la siguiente url https://github.com/etec-integration-project/etec-pi-2024-backend-Joaquin-Sanchez-Cerdan.git
 3. Entrar a MYSQL Workbench. Conectarse a la instancia local y crear una base de datos llamada "dogsdb"
 4. En el query 1, colocar los siguientes comandos y correrlos:
 
@@ -17,5 +17,21 @@ grant all privileges on *.* to 'root'@'%';
 6. Correr el comando docker compose up --build -d
 7. Realizar un *curl* a la siguientes url para verificar el funcionamiento:
     * http://localhost:8080
-    * http://localhost:8080/usuarios
-
+8. Para agregar un perro, realizar un *curl* a la siguiente url con los siguientes parámetros:
+    * curl -X POST -d '{
+        "id": 1,
+        "img": "https://www.thesprucepets.com/thmb/t2a_ZIsGy6QxYgy1AX14S0sPx6k=/3135x0/filters:no_upscale():strip_icc()/0.slyncher00NorwegianElkhound-f489583c55cd4aadbdeafdecf5605b87.jpg",
+        "name": "Maxi",
+        "race": "Norwegian Forest Dog",
+        "genre": "Male",
+        "age": 5,
+        "price": 400
+    }' -H "Content-Type: application/json" http://localhost:8080/perros/añadir
+9. Para agregar un usuario, realizar un *curl* a la siguiente url con los siguientes parámetros:
+    * curl -X POST -d '{
+        "id": 1,
+        "nombre": "Román",
+        "apellido": "Pereyra",
+        "email": "pereyra.roman@gmail.com",
+        "password": "123456"
+    }' -H "Content-Type: application/json" http://localhost:8080/usuarios/añadir
