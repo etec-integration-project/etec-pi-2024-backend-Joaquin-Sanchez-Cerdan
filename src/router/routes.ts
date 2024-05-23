@@ -8,7 +8,7 @@ mainRouter.get('/', (_, res) => {
 
 //perros
 mainRouter.get('/perros', getDogs);
-mainRouter.post('/perros/añadir', addDogsToDB);
+mainRouter.post('/perros/agregar', addDogsToDB);
 //usuario
 mainRouter.get('/usuarios', getUser);
 mainRouter.post('/registro', addUserToDB);

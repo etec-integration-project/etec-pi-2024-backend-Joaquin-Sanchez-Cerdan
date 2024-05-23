@@ -5,18 +5,24 @@ export class Dogs {
     @PrimaryGeneratedColumn()
     id!: number
 
-    @Column()
+    @Column({
+        length: 200,
+    })
     img!: string
 
     @Column({
-        length: 100,
+        length: 200,
     })
     name!: string
 
-    @Column()
+    @Column({
+        length: 200,
+    })
     race!: string
 
-    @Column()
+    @Column({
+        length: 200,
+    })
     genre!: string
 
     @Column()
