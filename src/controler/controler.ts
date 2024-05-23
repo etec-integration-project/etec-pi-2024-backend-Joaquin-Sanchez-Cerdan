@@ -1,7 +1,22 @@
 import { Response, Request } from 'express'
-import { AppDataSource} from '../persistance/db';
+import { AppDataSource, pdb} from '../persistance/db';
 import { User } from '../persistance/user';
+import { Dogs } from '../persistance/dogs';
 
+//perros
+export const getDogs = async (_: Request, res: Response) => {
+    const dogs = await AppDataSource.manager.find(Dogs);
+    res.json(dogs);
+}
+
+export const addDogsToDB = async () => {
+    pdb.map(async (p: Dogs) => {
+        const newDog = new Dogs(p.img, p.name, p.race, p.genre, p.age, p.price);
+        await AppDataSource.manager.save(newDog);
+    });
+}
+
+//usuario
 export const getUser = async (_: Request, res: Response) => {
     const user = await AppDataSource.manager.find(User);
     res.json(user);
