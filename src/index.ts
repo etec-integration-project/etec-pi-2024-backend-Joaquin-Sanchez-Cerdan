@@ -28,7 +28,17 @@ app.use(function(_, res, next){
 app.use(express.json());
 app.use ('/' , mainRouter);
 app.use (cors());
-
+app.post('perros/agregar', (req, res) => {
+    const { img, name, race, genre, age, price } = req.body
+    res.status(201).json({
+        img,
+        name,
+        race,
+        genre,
+        age,
+        price
+    })
+})
 
 AppDataSource.initialize()
     .then(async() => {
