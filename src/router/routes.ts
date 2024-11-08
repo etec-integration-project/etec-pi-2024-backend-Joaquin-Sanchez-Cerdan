@@ -1,5 +1,7 @@
 import express from 'express';
-import {getUser, addUserToDB,loginUser, addDogsToDB, getDogs} from '../controler/controler';
+import { addDogsToDB } from '../controler/addDogsToDB';
+import { addUserToDB } from '../controler/addUserToDB';
+import { loginUser } from '../controler/loginUser';
 const mainRouter = express.Router();
 
 mainRouter.get('/', (_, res) => {
@@ -7,10 +9,8 @@ mainRouter.get('/', (_, res) => {
 });
 
 //perros
-mainRouter.get('/perros', getDogs);
 mainRouter.post('/perros/agregar', addDogsToDB);
 //usuario
-mainRouter.get('/usuarios', getUser);
 mainRouter.post('/registro', addUserToDB);
 mainRouter.post('/login', loginUser)
 

@@ -8,36 +8,34 @@ export class Dogs {
     @Column({
         length: 200,
     })
-    img!: string
-
-    @Column({
-        length: 200,
-    })
-    name!: string
-
-    @Column({
-        length: 200,
-    })
-    race!: string
-
-    @Column({
-        length: 200,
-    })
-    genre!: string
+    nombre!: string
 
     @Column()
-    age!: number
+    edad!: number
+
+    @Column({
+        length: 200,
+    })
+    raza!: string
 
     @Column()
-    price!: number
+    genero!: string
 
-    constructor( img: string, name: string, race: string, genre: string, age: number, price: number) {
-        this.img =img;
-        this.name = name;
-        this.race = race;
-        this.genre = genre;
-        this.age = age;
-        this.price = price
+    @Column({
+        length: 200,
+    })
+    descripcion!: string
+
+    @Column()
+    precio!: number
+
+    constructor( nombre: string, edad: number, raza: string, genero: string, descripcion: string, precio: number) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.raza = raza;
+        this.genero = this.genero;
+        this.descripcion = this.descripcion
+        this.precio = precio
     }
 
 }

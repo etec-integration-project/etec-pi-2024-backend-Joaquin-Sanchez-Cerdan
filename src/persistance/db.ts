@@ -22,12 +22,12 @@ export const AppDataSource = new DataSource({
 
 export type Perros = {
     id: number
-    img: string
-    name: string
-    race: string
-    genre: string
-    age: number
-    price: number
+    nombre: string
+    edad: number
+    raza: string
+    genero: string
+    descripcion: string
+    precio: number
 }
 
 export type Usuario = {
@@ -51,11 +51,11 @@ export const udb:Array <Usuario> = [
 export const pdb:Array <Perros> = [
     {
         id: 1,
-        img: "https://www.thesprucepets.com/thmb/t2a_ZIsGy6QxYgy1AX14S0sPx6k=/3135x0/filters:no_upscale():strip_icc()/0.slyncher00NorwegianElkhound-f489583c55cd4aadbdeafdecf5605b87.jpg",
-        name: "Maxi",
-        race: "Norwegian Forest Dog",
-        genre: "Male",
-        age: 5,
-        price: 400
+        nombre: "Maxi",
+        edad: 5,
+        raza: "Norwegian Forest Dog",
+        genero: "Male",
+        descripcion: "Family dog",
+        precio: 400,
     },
 ]
