@@ -9,9 +9,9 @@ mainRouter.get('/', (_, res) => {
 });
 
 //perros
-mainRouter.post('/perros/agregar', addDogsToDB);
+mainRouter.post('/api/perros/agregar', addDogsToDB);
 //usuario
-mainRouter.post('/registro', addUserToDB);
-mainRouter.post('/login', loginUser)
+mainRouter.post('/api/registro', addUserToDB);
+mainRouter.post('/api/login', loginUser)
 
 export { mainRouter };  

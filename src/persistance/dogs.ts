@@ -33,9 +33,9 @@ export class Dogs {
         this.nombre = nombre;
         this.edad = edad;
         this.raza = raza;
-        this.genero = this.genero;
-        this.descripcion = this.descripcion
-        this.precio = precio
+        this.genero = genero;
+        this.descripcion = descripcion;
+        this.precio = precio;
     }
 
 }

@@ -3,13 +3,13 @@ import { AppDataSource } from '../persistance/db';
 import { Dogs } from '../persistance/dogs';
 
 export const addDogsToDB = async (req: Request, res: Response) => {
-    const { datosDelPerro } = req.body;
-    const nombre = datosDelPerro.nombre;
-    const edad = datosDelPerro.edad;
-    const raza = datosDelPerro.raza;
-    const genero = datosDelPerro.genero;
-    const descripcion = datosDelPerro.descripcion;
-    const precio = datosDelPerro.precio;
+    console.log("Datos: ", req.body);
+    const nombre = req.body.nombre;
+    const edad = req.body.edad;
+    const raza = req.body.raza;
+    const genero = req.body.genero;
+    const descripcion = req.body.descripcion;
+    const precio = req.body.precio;
 
     try {
             const perroNew = new Dogs(nombre, edad, raza, genero, descripcion, precio);
