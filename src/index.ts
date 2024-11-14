@@ -25,19 +25,7 @@ const port = 8080;
 app.use(express.json());
 app.use ('/' , mainRouter);
 
-const allowedOrigin = process.env.CORS_ORIGIN || 'http://127.0.0.1';
-
-app.use(cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigin.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Origen no permitido por CORS'));
-      }
-    },
-    methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  }));
+app.use(cors())
 
 app.post('/api/perros/agregar', addDogsToDB);
 
