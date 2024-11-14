@@ -19,8 +19,6 @@ services:
     build:
       context: .
     restart: always
-    ports:
-      - "8080:8080"
     environment:
       - DATABASE_NAME=dogsdb
       - DATABASE_USERNAME=root
@@ -37,8 +35,6 @@ services:
     restart: always
     depends_on:
       - app
-    ports:
-      - "3000:3000"
     networks:
       - express-app
 
