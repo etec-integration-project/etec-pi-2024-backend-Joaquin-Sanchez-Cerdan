@@ -12,8 +12,9 @@ export const loginUser = async (req: Request, res: Response) => {
             msg: "Iniciaste sesión",
             user: {
                 id: user.id,
+                name: user.name,
                 email: user.email,
- 
+
             },
         });
     } else {
@@ -23,5 +24,6 @@ export const loginUser = async (req: Request, res: Response) => {
         });
     }
 };
+
 
 

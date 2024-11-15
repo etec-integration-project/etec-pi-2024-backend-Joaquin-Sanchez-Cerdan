@@ -8,7 +8,7 @@ export class User {
     @Column({
         length: 100,
     })
-    username!: string
+    name!: string
 
     @Column({
         length: 100,
@@ -25,8 +25,8 @@ export class User {
     })
     password2!: string
 
-    constructor(username: string, email: string, password: string, password2: string) {
-        this.username = username;
+    constructor(name: string, email: string, password: string, password2: string) {
+        this.name = name;
         this.email = email;
         this.password = password;
         this.password2 = password2;
