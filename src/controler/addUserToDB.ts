@@ -3,11 +3,11 @@ import { AppDataSource } from '../persistance/db';
 import { User } from '../persistance/user';
 
 export const addUserToDB = async (req: Request, res: Response) => {
-    const { userData } = req.body;
-    const username = userData.username;
-    const email = userData.email;
-    const password = userData.password;
-    const password2 = userData.password2;
+    console.log("Datos:", req.body);
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    const password2 = req.body.password2;
 
     try {
             const newUser = new User(username, email, password, password2);
