@@ -17,7 +17,7 @@ services:
 
   app:
     build:
-      context: .
+      context: https://github.com/etec-integration-project/etec-pi-2024-backend-Joaquin-Sanchez-Cerdan.git
     restart: always
     environment:
       - DATABASE_NAME=dogsdb
