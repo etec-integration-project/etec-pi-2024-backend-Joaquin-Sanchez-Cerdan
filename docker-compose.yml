@@ -40,7 +40,7 @@ services:
 
   nginx:
     build: 
-      context: https://github.com/etec-integration-project/etec-pi-2024-backend-Joaquin-Sanchez-Cerdan.git
+      context: https://raw.githubusercontent.com/etec-integration-project/etec-pi-2024-backend-Joaquin-Sanchez-Cerdan/refs/heads/main/nginx/Dockerfile
     ports:
       - "80:80"
     links:
