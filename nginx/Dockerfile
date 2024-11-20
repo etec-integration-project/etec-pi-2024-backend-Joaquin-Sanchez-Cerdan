@@ -1,5 +1,5 @@
 FROM nginx:latest
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY https://raw.githubusercontent.com/etec-integration-project/etec-pi-2024-backend-Joaquin-Sanchez-Cerdan/refs/heads/main/nginx/nginx.conf 
 
 EXPOSE 80
