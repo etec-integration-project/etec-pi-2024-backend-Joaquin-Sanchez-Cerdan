@@ -41,6 +41,7 @@ services:
   nginx:
     build:
       context: https://github.com/etec-integration-project/etec-pi-2024-proxy-Joaquin-Sanchez-Cerdan.git
+      dockerfile: Dockerfile
     ports:
       - "80:80"
     links:
