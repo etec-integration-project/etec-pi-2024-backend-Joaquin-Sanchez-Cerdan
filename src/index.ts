@@ -7,7 +7,8 @@ import cors from 'cors';
 import { config } from 'dotenv';
 import { addDogsToDB } from './controler/addDogsToDB';
 import { addUserToDB } from './controler/addUserToDB';
-//import { loginUser } from './controler/loginUser';
+import { loginUser } from './controler/loginUser';
+import { getPosts } from './controler/getPosts';
 
 config();
 const database = process.env.DATABASE_NAME
@@ -29,6 +30,8 @@ app.use(cors())
 
 app.post('/api/perros/agregar', addDogsToDB);
 app.post('/api/registro', addUserToDB);
+app.post('/api/login', loginUser);
+app.get('/api/perros/post', getPosts);
 
 AppDataSource.initialize()
     .then(async() => {
