@@ -1,0 +1,55 @@
+services:
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - 3307:3306
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=dogsdb
+      - TZ=America/Argentina/Mendoza
+    networks:
+      - express-app
+
+  app:
+    build:
+      context: https://github.com/etec-integration-project/etec-pi-2024-backend-Joaquin-Sanchez-Cerdan.git
+    restart: always
+    environment:
+      - DATABASE_NAME=dogsdb
+      - DATABASE_USERNAME=root
+      - DATABASE_PASSWORD=1234
+      - DATABASE_PORT=3306
+      - DATABASE_HOST=mysql
+    networks:
+      - express-app
+
+  frontend:
+    build:
+      context: https://github.com/etec-integration-project/etec-pi-2024-frontend-Joaquin-Sanchez-Cerdan.git
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - app
+    networks:
+      - express-app
+
+  nginx:
+    build:
+      context: https://github.com/etec-integration-project/etec-pi-2024-proxy-Joaquin-Sanchez-Cerdan.git
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    links:
+      - frontend
+      - app
+    restart: always
+    networks:
+      - express-app
+
+networks:
+  express-app:
